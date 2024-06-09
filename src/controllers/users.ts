@@ -14,6 +14,13 @@ export const getUser: RequestHandler = async (req, res, next) => {
       where: {
         id: req.params.user_id,
       },
+      include: {
+        sitter: {
+          select: {
+            status: true,
+          },
+        },
+      },
       omit: {
         password: true,
       },
@@ -81,6 +88,13 @@ export const signUp: RequestHandler = async (req, res, next) => {
         email,
         password: passwordHashed,
       },
+      include: {
+        sitter: {
+          select: {
+            status: true,
+          },
+        },
+      },
       omit: {
         password: true,
       },
@@ -128,6 +142,13 @@ export const logIn: RequestHandler = async (req, res, next) => {
   const existingUser = await prisma.user.findUnique({
     where: {
       email: email,
+    },
+    include: {
+      sitter: {
+        select: {
+          status: true,
+        },
+      },
     },
   });
 
@@ -213,6 +234,13 @@ export const updateUser: RequestHandler = async (req, res, next) => {
         id: req.params.user_id,
       },
       data,
+      include: {
+        sitter: {
+          select: {
+            status: true,
+          },
+        },
+      },
       omit: {
         password: true,
       },

@@ -76,7 +76,7 @@ export const sitterResponseSchema = z
     service_description: z.string(),
     average_rating: z.number().nullable(),
     total_reviews: z.number().default(0),
-    status: z.nativeEnum(SitterStatus).default(SitterStatus.APPROVING),
+    status: z.nativeEnum(SitterStatus).nullable(),
   })
   .openapi({
     example: {

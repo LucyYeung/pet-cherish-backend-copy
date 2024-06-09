@@ -178,4 +178,7 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# "Render derver" deployment bug rootcause, need to renew one to solve on deplement.
+package-lock.json
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,node

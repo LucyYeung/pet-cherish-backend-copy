@@ -1,6 +1,12 @@
 import { OpenAPIRegistry } from '@asteasolutions/zod-to-openapi';
 import { BearerAuth } from '@schema/bearerAuth';
-import { reviewBodySchema, reviewParamSchema, reviewResponseSchema, reviewsResponseSchema } from '@schema/review';
+import {
+  ownerReviewsResponseSchema,
+  reviewBodySchema,
+  reviewParamSchema,
+  reviewResponseSchema,
+  sitterReviewsResponseSchema,
+} from '@schema/review';
 import { userBaseSchema } from '@schema/user';
 
 export const setReviewsSwagger = (registry: OpenAPIRegistry, bearerAuth: BearerAuth) => {
@@ -117,7 +123,7 @@ const getOwnerReviews = (registry: OpenAPIRegistry) => {
         description: 'OK',
         content: {
           'application/json': {
-            schema: reviewsResponseSchema,
+            schema: ownerReviewsResponseSchema,
           },
         },
       },
@@ -142,7 +148,7 @@ const getSitterReviews = (registry: OpenAPIRegistry) => {
         description: 'OK',
         content: {
           'application/json': {
-            schema: reviewsResponseSchema,
+            schema: sitterReviewsResponseSchema,
           },
         },
       },
